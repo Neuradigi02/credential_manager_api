@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <title>Top-Up Receipt</title>
+    <style>
+        .doc-body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .doc-receipt-details {
+            padding: 30px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .doc-h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .doc-d-flex {
+            display: flex !important;
+        }
+
+        .doc-ml-auto {
+            margin-left: auto;
+        }
+
+        .doc-justify-content-center {
+            justify-content: center !important;
+            text-align: center;
+        }
+
+        .doc-mt-5 {
+            margin-top: 3rem !important;
+        }
+
+        .doc-mb-5 {
+            margin-bottom: 3rem !important;
+        }
+
+        .doc-company-logo {
+            width: 300px;
+        }
+
+        .doc-item {
+            display: table;
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        .doc-item strong {
+            display: table-cell;
+            width: 50%;
+            font-weight: bold;
+            padding-right: 10px;
+            vertical-align: top;
+        }
+
+        .doc-item span {
+            display: table-cell;
+            vertical-align: top;
+            float: right;
+        }
+
+        .doc-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .doc-tr {
+            outline: 0 none;
+            font-size: 0.92rem;
+        }
+
+        .doc-th {
+            padding: 0.75rem 0.75rem;
+            font-weight: 500;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center !important;
+            border-bottom: 1px solid #eee;
+        }
+
+        .doc-td {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center !important;
+            border-bottom: 1px solid #eee;
+            padding: 0.75rem 0.75rem;
+        }
+
+        .doc-overflow-scroll{
+            overflow:auto;
+        }
+
+        .doc-footer {
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body class="doc-body">
+    <header>
+        <img src="{{logo}}" class="doc-company-logo">
+        <h1 class="doc-h1">Top-Up Receipt</h1>
+    </header>
+    <div class="doc-receipt-details">
+        <div class="doc-item"><strong>Transaction ID:</strong> <span id="transactionId">{{transaction_id}}</span></div>
+        <div class="doc-item"><strong>User ID:</strong> <span id="userId">{{user_id}}</span></div>
+        <div class="doc-item"><strong>User Name:</strong> <span id="userName">{{user_name}}</span></div>
+        <div class="doc-item"><strong>Date:</strong> <span id="topupDate">{{topup_date}}</span></div>
+    </div>
+    <hr>
+    <div class="doc-receipt-details doc-overflow-scroll">
+        <table id="pinTable" class="doc-table" style="min-width: 50rem;">
+            <thead>
+                <tr>
+                    <th class="doc-th">Package</th>
+                    <th class="doc-th">Pin Value ({{currency_symbol}})</th>
+                    <th class="doc-th">{{tax_name}} (%)</th>
+                    <th class="doc-th">{{tax_name}} Amount</th>
+                    <th class="doc-th">Total Amount</th>
+                    <th class="doc-th">Payment Mode</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="doc-td">{{package}}</td>
+                    <td class="doc-td">{{pin_value}}</td>
+                    <td class="doc-td">{{tax_percentage}}</td>
+                    <td class="doc-td">{{tax_amount}}</td>
+                    <td class="doc-td">{{pin_value_with_tax}}</td>
+                    <td class="doc-td">{{payment_mode}}</td>
+                </tr>
+                <tr>
+                    <td class="doc-td" colspan="4"></td>
+                    <td class="doc-td" style="text-align: right;">Net Payable:</td>
+                    <td class="doc-td">{{currency_symbol}}{{pin_value_with_tax}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="doc-d-flex doc-justify-content-center doc-mt-5 doc-mb-5">
+        <b>Note:-</b> This is a computer-generated receipt. It does not require a signature.
+    </div>
+    <footer class="doc-footer">
+        <p>&copy; {{year}} Your {{company_name}}. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

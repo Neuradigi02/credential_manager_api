@@ -1,0 +1,23 @@
+
+OK = 'Ok'
+DATABASE_CONNECTION_ERROR = 'Some error occurred while connecting to database server! Try after some time.'
+INVALID_CREDENTIALS = 'Invalid credentials!'
+UNKNOWN_ERROR = 'Some server error occurred!'
+OTP_SENT_SUCCESSFULLY_TO_MOBILE = 'OTP sent successfully to your mobile {}.'
+OTP_SENT_SUCCESSFULLY_TO_EMAIL = 'OTP sent successfully to your email id {}.'
+NO_MOBILE_FOR_SMS = 'No mobile number found to send SMS!'
+NO_EMAIL_FOR_MAIL = 'No email id found to send mail!'
+NO_OPTION_FOR_TWO_FACTOR = 'No option found for 2-factor authentication!'
+INVALID_OTP_OPTION = 'Invalid OTP option!'
+INVALID_IFSC = 'Invalid IFSC!'
+INVALID_USER_ID = 'Invalid user id!'
+INVALID_VERIFICATION_CODE = "Invalid verification code!"
+INVALID_VERIFICATION_MODE = "Invalid verification mode!"
+JOINING_INFO_SEND_ERROR = "Some error occurred while sending joining info!"
+JOINING_INFO_ALREADY_SENT = "Joining info has already been sent!"
+NO_ROUTES_FOUND = "No routes found!"
+NO_WALLET_FOUND = "No wallet found!"
+NO_PACKAGE_FOUND = "No package found!"
+UNSUPPORTED_FILE_FORMAT = "Unsupported file format!"
+INVALID_AUTOMATION_KEY = "Invalid automation key!"
+INVALID_FILE_TYPE = "Invalid file type!"

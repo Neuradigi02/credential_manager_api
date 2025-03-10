@@ -1,0 +1,74 @@
+<mjml>
+  <mj-body background-color='#f0f0f0' style='font-family: Helvetica,Arial,sans-serif;'>
+    <mj-section padding='20px'>
+      <mj-column>
+        <mj-image width='200px' src='{{logo}}' alt='{{company_name}}'></mj-image>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color='#ffffff'>
+      <mj-column>
+        <mj-text font-family='Helvetica'>
+          <div style='border-bottom:1px solid #eee'>
+            <a href='{{website_url}}' style='font-size:1.4em;color: #00466a;text-decoration:none;font-weight:600'>{{company_name}}</a>
+          </div>
+        </mj-text>
+        <mj-text font-family='Helvetica'>
+          <div style='font-size:1.1em;'>
+            <center>
+              <h2>Hi {{user_name}},</h2>
+              <p>Welcome to {{company_name}}.</p>
+              <p>Thank you for opening an account with us!</p>
+              <p>We wish you a brighter future ahead!</p>
+              <br>
+              <p></p>
+            </center>
+          </div>
+        </mj-text>
+        <mj-table>
+          <tr style="border-bottom:1px solid #ecedee;text-align:center;padding:15px 0;">
+            <th colspan=2>Following are your account details:</th>
+          </tr>
+          <tr style="border-bottom:1px solid #ecedee;text-align:center;padding:15px 0;">
+            <td>User Id</td>
+            <td>{{user_id}}</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ecedee;text-align:center;padding:15px 0;">
+            <td>Name</td>
+            <td>{{user_name}}</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ecedee;text-align:center;padding:15px 0;">
+            <td>Joining Amount</td>
+            <td>{{joining_amount}}</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ecedee;text-align:center;padding:15px 0;">
+            <td>Referred by</td>
+            <td>{{sponsor_id}}</td>
+          </tr>
+        </mj-table>
+        <mj-text font-family='Helvetica'>
+          <div style='font-size:1.1em;'>
+            <center>
+                <b>Your Referral Link</b>
+                <p><a href="{{referral_link}}" target="_blank">{{referral_link}}</a></p>
+            </center>
+          </div>
+        </mj-text>
+        <mj-text font-family='Helvetica'>
+          <div>
+            <p style="line-height:1.5">Thanks, <br>{{company_name}} Team</p>
+          </div>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section>
+      <mj-column>
+        <mj-text>
+          <center>
+            <p>{{company_address}}</p>
+            <p>&#169; {{year}} {{company_name}}. All rights reserved.</p>
+          </center>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

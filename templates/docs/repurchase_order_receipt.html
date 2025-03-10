@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <title>Shopping Order Receipt</title>
+    <style>
+        .doc-body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .doc-receipt-details {
+            padding: 30px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .doc-h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .doc-d-flex {
+            display: flex !important;
+        }
+
+        .doc-ml-auto {
+            margin-left: auto;
+        }
+
+        .doc-justify-content-center {
+            justify-content: center !important;
+            text-align: center;
+        }
+
+        .doc-mt-5 {
+            margin-top: 3rem !important;
+        }
+
+        .doc-mb-5 {
+            margin-bottom: 3rem !important;
+        }
+
+        .doc-company-logo {
+            width: 300px;
+        }
+
+        .doc-item {
+            display: table;
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        .doc-item strong {
+            display: table-cell;
+            width: 50%;
+            font-weight: bold;
+            padding-right: 10px;
+            vertical-align: top;
+        }
+
+        .doc-item span {
+            display: table-cell;
+            vertical-align: top;
+            float: right;
+        }
+
+        .doc-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .doc-tr {
+            outline: 0 none;
+            font-size: 0.92rem;
+        }
+
+        .doc-th {
+            padding: 0.75rem 0.75rem;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 0.87);
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center !important;
+            border-bottom: 1px solid #eee;
+        }
+
+        .doc-td {
+            display: table-cell;
+            padding: 0px 10px;
+            vertical-align: middle;
+            text-align: center !important;
+            border-bottom: 1px solid #eee;
+            padding: 0.75rem 0.75rem;
+        }
+
+        .doc-overflow-scroll{
+            overflow:auto;
+        }
+
+        .doc-footer {
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body class="doc-body">
+    <header>
+        <img src="{{logo}}" class="doc-company-logo">
+        <h1 class="doc-h1">Invoice</h1>
+    </header>
+    <div class="doc-receipt-details">
+        <div class="doc-item"><strong>Order ID:</strong> <span id="orderID">{{order_id}}</span></div>
+        <div class="doc-item"><strong>Customer ID:</strong> <span id="customerID">{{customer_id}}</span></div>
+        <div class="doc-item"><strong>Customer Name:</strong> <span id="customerName">{{customer_name}}</span></div>
+        <div class="doc-item"><strong>Date:</strong> <span id="orderDate">{{order_date}}</span></div>
+    </div>
+    <hr>
+    <div class="doc-receipt-details doc-overflow-scroll">
+        <table id="orderTable" class="doc-table" style="min-width: 50rem;">
+            <thead>
+                <tr>
+                    <th class="doc-th">Product</th>
+                    <th class="doc-th">Quantity</th>
+                    <th class="doc-th">Unit Price ({{currency_symbol}})</th>
+                    <th class="doc-th">Total Price ({{currency_symbol}})</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="doc-td">{{product1_name}}</td>
+                    <td class="doc-td">{{product1_quantity}}</td>
+                    <td class="doc-td">{{product1_unit_price}}</td>
+                    <td class="doc-td">{{product1_total_price}}</td>
+                </tr>
+                <tr>
+                    <td class="doc-td">{{product2_name}}</td>
+                    <td class="doc-td">{{product2_quantity}}</td>
+                    <td class="doc-td">{{product2_unit_price}}</td>
+                    <td class="doc-td">{{product2_total_price}}</td>
+                </tr>
+                <!-- Add more rows for additional products if needed -->
+                <tr>
+                    <td class="doc-td" colspan="3"></td>
+                    <td class="doc-td" style="text-align: right;">Subtotal:</td>
+                    <td class="doc-td">{{currency_symbol}}{{subtotal}}</td>
+                </tr>
+                <tr>
+                    <td class="doc-td" colspan="3"></td>
+                    <td class="doc-td" style="text-align: right;">Tax ({{tax_name}} {{tax_percentage}}%):</td>
+                    <td class="doc-td">{{currency_symbol}}{{tax_amount}}</td>
+                </tr>
+                <tr>
+                    <td class="doc-td" colspan="3"></td>
+                    <td class="doc-td" style="text-align: right;">Total Amount:</td>
+                    <td class="doc-td">{{currency_symbol}}{{total_amount}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="doc-d-flex doc-justify-content-center doc-mt-5 doc-mb-5">
+        <b>Note:-</b> This is a computer-generated receipt. It does not require a signature.
+    </div>
+    <footer class="doc-footer">
+        <p>&copy; {{year}} {{company_name}}. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

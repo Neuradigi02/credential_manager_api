@@ -1,0 +1,11 @@
+version: "3.13.2"
+services:
+  fastapi-app:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - "./static:/app/static"  
+    environment:
+      - ENV=production
+    restart: always

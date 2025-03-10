@@ -1,0 +1,9 @@
+template_name;template_id;template_text
+joining_sms;1207163259298062269;Congratulations {user_name}! Welcome to {company_name}, Your user id is : {user_id}. Visit : {website_url}. Team {company_name}.
+two_factor_auth_otp;1207163990512339035;Dear {user_name}, UserId: {user_id}, Your OTP for two factor authentication is : {otp}. Team {company_name}.
+password_reset_link;1207163281293301452;Dear {user_name}, UserId : {user_id}. Click on the following link to reset your password : {reset_link}. Team {company_name}.
+verification_otp;1207163281293301452;Dear {user_name}, UserId: {user_id}, Your OTP for mobile verification of your {company_name} account is : {otp}. Team {company_name}.
+verification_otp_before_registration;1207163281293301452;Your OTP for mobile verification of your {company_name} account is : {otp}. Team {company_name}.
+topup_success;1207163281293301452;Dear {user_name}, UserId: {user_id}, Topup successful with {package_name} for your {company_name} account. Team {company_name}.
+withdrawal_successful;1207163281293301452;Dear {user_name}, UserId: {user_id}, Withdrawal of {amount} is successful for your {company_name} account. Team {company_name}.
+withdrawal_rejected;1207163281293301452;Dear {user_name}, UserId: {user_id}, Withdrawal of {amount} is rejected for your {company_name} account. Team {company_name}.

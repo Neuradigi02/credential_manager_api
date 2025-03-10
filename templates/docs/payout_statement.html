@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <title>Payout Statement</title>
+    <style>
+        .doc-body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .doc-statement-details {
+            padding: 30px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .doc-h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .doc-d-flex {
+            display: flex !important;
+        }
+
+        .doc-ml-auto {
+            margin-left: auto;
+        }
+
+        .doc-justify-content-center {
+            justify-content: center !important;
+            text-align: center;
+        }
+
+        .doc-mt-5 {
+            margin-top: 3rem !important;
+        }
+
+        .doc-company-logo {
+            width: 300px;
+        }
+
+        .doc-item {
+            display: table;
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        .doc-total-row {
+            display: table;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .doc-item strong {
+            display: table-cell;
+            width: 50%;
+            font-weight: bold;
+            padding-right: 10px;
+            vertical-align: top;
+        }
+
+        .doc-item span {
+            display: table-cell;
+            vertical-align: top;
+            float: right;
+        }
+
+        .doc-total-label {
+            display: table-cell;
+            width: 50%;
+            font-weight: bold;
+            padding-right: 10px;
+            vertical-align: top;
+        }
+
+        .doc-total-amount {
+            display: table-cell;
+            font-weight: bold;
+            float: right;
+        }
+
+        .doc-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .doc-th {
+            padding: 0.75rem 0.75rem;
+            font-weight: 500;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: left !important;
+            border-bottom: 1px solid #eee;
+        }
+
+        .doc-th-2 {
+            padding: 0.75rem 0.75rem;
+            font-weight: 500;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: right !important;
+            border-bottom: 1px solid #eee;
+        }
+
+        .doc-td {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: left !important;
+            border-bottom: 1px solid #eee;
+            padding: 0.75rem 0.75rem;
+        }
+
+        .doc-td-2 {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: right !important;
+            border-bottom: 1px solid #eee;
+            padding: 0.75rem 0.75rem;
+        }
+
+        .doc-container {
+            width: 100%;
+            overflow: hidden; /* Clear the floated child elements */
+        }
+
+        .doc-left {
+            width: 60%;
+            float: left;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .doc-right {
+            width: 40%;
+            float: left;
+            background-color: #f0f0f0;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .doc-clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .doc-content {
+            margin: auto;
+        }
+
+        .doc-footer {
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<div class="doc-body">
+    <header>
+        <img src="{{logo}}" class="doc-company-logo">
+        <h1 class="doc-h1">Payout Statement</h1>
+    </header>
+    <div class="doc-statement-details">
+        <div class="doc-item"><strong>Statement ID:</strong> <span id="statementId">{{statement_id}}</span></div>
+        <div class="doc-item"><strong>User ID:</strong> <span id="userId">{{user_id}}</span></div>
+        <div class="doc-item"><strong>User Name:</strong> <span id="userName">{{user_name}}</span></div>
+        <div class="doc-item"><strong>Statement Period:</strong> <span id="statementDate">{{statement_period}}</span></div>
+    </div>
+    <hr width="100%">
+<div class="doc-container doc-clearfix">
+        <div class="doc-left">
+            <div class="doc-content">
+                <table id="payoutTable" class="doc-table">
+                    <thead>
+                        <tr>
+                            <th class="doc-th">Income Type</th>
+                            <th class="doc-th-2">Amount ({{currency_symbol}})</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            {{income_rows}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="doc-right">
+            <div class="doc-content">
+                {{deduction_rows}}
+            </div>
+        </div>
+    </div>
+
+    <hr width="100%">
+    <footer class="doc-footer">
+        <p>&copy; {{year}} Your {{company_name}}. All rights reserved.</p>
+    </footer>
+</div>
+
+</html>
