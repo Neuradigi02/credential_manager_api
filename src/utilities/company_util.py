@@ -12,9 +12,6 @@ def get_company_details_dict():
             'website_url': company_details.loc["website"],
             'year': today_date.year,
             'otp_validity_minutes': company_details.loc["otp_validity_minutes"],
-            'currency_symbol': company_details.loc["currency_symbol"],
-            'is_currency_symbol_prefixed': company_details.loc["is_currency_symbol_prefixed"],
-            'tax_name': company_details.loc["tax_name"],
             'round_off_digits': company_details.loc["round_off_digits"],
             'company_email': company_details.loc["email"],
             'company_mobile': company_details.loc["mobile"]

@@ -22,9 +22,3 @@ class UserContactDetailsUpdateRequest(BaseModel):
     state: int
     two_factor_auth_request_id: str = ''
     
-class UserNomineeDetailsUpdateRequest(BaseModel):
-    user_id: Annotated[str, VALIDATORS.USER_ID]
-    nominee_title: Annotated[str, VALIDATORS.TITLE] = 'Mr'
-    nominee_name: Annotated[str, VALIDATORS.NAME] = ''
-    nominee_relationship: Annotated[str, VALIDATORS.NOMINEE_RELATIONSHIP]
-    

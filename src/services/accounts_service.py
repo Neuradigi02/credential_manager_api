@@ -37,9 +37,6 @@ async def login(username: str, password: str, request: Request, background_tasks
 
     ip_details = await get_ip_info(client_ip_address)
 
-    if company_details['is_decentralized']:
-        username = await member_id_to_user_id(member_id=username)
-
     dataset = await data_access.login(user_id=username,
                                       password=password,
                                       url=url,
@@ -48,9 +45,7 @@ async def login(username: str, password: str, request: Request, background_tasks
                                       by_admin_user_id=by_admin_user_id)
 
     if len(dataset) > 0:
-
         login_info_df = dataset['rs']
-
         if len(login_info_df) > 0:
             if login_info_df.iloc[0].loc['valid']:  # credentials are valid
                 return await request_login_token(user_id=login_info_df.iloc[0].loc['user_id'],

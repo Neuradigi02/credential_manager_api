@@ -26,7 +26,6 @@ async def get_notifications(page_index: int = 0, page_size: int = 10, token_payl
     return {'success': False, 'message': DATABASE_CONNECTION_ERROR}
 
 
-
 @router.put('/mark_as_read', dependencies=[Depends(RightsChecker([10, 11, 59]))])
 async def mark_as_read(message_ids: str, token_payload: any = Depends(get_current_user)):
     # message_ids = [int(id) for id in message_ids.split(',')]

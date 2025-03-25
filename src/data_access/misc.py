@@ -15,17 +15,6 @@ def get_states_by_country_id(country_id: int):
     return res
 
 
-def get_bank_details_by_ifsc(ifsc: str):
-    res = execute_query_async("call usp_get_bank_details_by_ifsc(_ifsc => %s)", (ifsc,))
-    return res
-
-
-def get_supported_cryptos(action: str = 'Any', id: int = 0, chain_id: int = -1):
-    res = execute_query_async("call usp_get_supported_cryptos(_action => %s, _id => %s, _chain_id => %s)",
-                        (action, id, chain_id))
-    return res
-
-
 def get_column_details(report_name: str):
     res = execute_query_async("call usp_get_columns(_report_name => %s)", (report_name, ))
     return res

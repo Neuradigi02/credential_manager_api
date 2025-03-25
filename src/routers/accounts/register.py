@@ -94,17 +94,6 @@ async def is_sponsor_valid(sponsor_id: Annotated[str, VALIDATORS.USER_ID]):
     return {'success': False, 'message': DATABASE_CONNECTION_ERROR }
 
 
-@router.get('/is_upline_valid')
-async def is_upline_valid(upline_user_id: Annotated[str, VALIDATORS.USER_ID]):
-    dataset = await register_data_access.is_upline_valid(upline_user_id=upline_user_id)
-
-    if len(dataset) > 0 and len(dataset['rs']):
-        ds = dataset['rs']
-        ds = data_frame_to_dict(ds)
-        return {'success': True, 'message': OK, 'data': ds }
-    return {'success': False, 'message': DATABASE_CONNECTION_ERROR }
-
-
 @router.get('/does_user_id_exist')
 async def does_user_id_exist(user_id: Annotated[str, VALIDATORS.USER_ID]):
     dataset = await register_data_access.does_user_id_exist(user_id=user_id)
